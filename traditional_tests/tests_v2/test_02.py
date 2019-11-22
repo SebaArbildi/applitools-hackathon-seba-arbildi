@@ -29,7 +29,7 @@ class Test02(unittest.TestCase):
         self.login_page.click_login_button()
         warning_msg = self.login_page.get_warning_msg()
         self.assertIsNotNone(warning_msg)
-        self.assertEqual('Password must be present', warning_msg)
+        self.assertEqual('Password must be present', warning_msg, 'Issue: No warning message showed')
 
     def test_yes_pass_no_username(self):
         self.login_page.set_password('seba arbildi')

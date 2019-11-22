@@ -10,7 +10,7 @@ class Test03(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome('./chromedriver')
-        self.driver.get('https://demo.applitools.com/hackathon.html')
+        self.driver.get('https://demo.applitools.com/hackathonV2.html')
         self.login_page = LoginPage(self.driver)
         self.login_page.login('seba', 'seba')
         self.home_page = HomePage(self.driver)
@@ -18,6 +18,7 @@ class Test03(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
+    #Issue: AMount order is not the correct
     def test_valid_amount_order_after_sort(self):
         original_table = self.home_page.get_transactions_table()
         amount_original = self.home_page.get_amount_order(original_table)
@@ -26,7 +27,8 @@ class Test03(unittest.TestCase):
         new_table = self.home_page.get_transactions_table()
         amount_new = self.home_page.get_amount_order(new_table)
         valid_amount_order = self.home_page.validate_amount_order(amount_original, amount_new)
-        self.assertTrue(valid_amount_order)
+        self.assertTrue(valid_amount_order, 'Amount has not the correct order. Actual Order is: ' + str(amount_new) +
+                        'and Expected Order is:' + str(amount_original))
 
     def test_valid_data_after_sort(self):
         original_table = self.home_page.get_transactions_table()
@@ -34,6 +36,3 @@ class Test03(unittest.TestCase):
         new_table = self.home_page.get_transactions_table()
         valid_data = self.home_page.validate_table_data(original_table, new_table)
         self.assertTrue(valid_data)
-
-
-

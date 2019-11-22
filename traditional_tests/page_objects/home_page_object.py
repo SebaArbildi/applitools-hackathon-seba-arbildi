@@ -55,34 +55,16 @@ class HomePage():
         return valid
 
     def click_amount_header(self):
-        amount_header = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.ID, 'amount'))
-        )
+        amount_header = Utils.wait_clickable_and_get_element(self.driver, By.ID, 'amount')
         amount_header.click()
 
     def click_compare_expenses(self):
-        compare_expenses = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.ID, 'showExpensesChart'))
-        )
+        compare_expenses = Utils.wait_clickable_and_get_element(self.driver, By.ID, 'showExpensesChart')
         compare_expenses.click()
 
     def flash_sale_is_present(self):
-        try:
-            WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.ID, 'flashSale'))
-            )
-            is_present = True
-        except:
-            is_present = False
-        return is_present
+        return Utils.wait_presence_and_get_element(self.driver, By.ID, 'flashSale')
 
     def flash_sale2_is_present(self):
-        try:
-            WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.ID, 'flashSale2'))
-            )
-            is_present = True
-        except:
-            is_present = False
-        return is_present
+        return Utils.wait_presence_and_get_element(self.driver, By.ID, 'flashSale2')
 
