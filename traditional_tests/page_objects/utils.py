@@ -31,3 +31,13 @@ class Utils:
             elements = None
         return elements
 
+    @staticmethod
+    def wait_for_visibility_get_element(driver, selector, locator):
+        try:
+            element = WebDriverWait(driver, 10).until(
+                EC.visibility_of((selector, locator))
+            )
+        except:
+            element = None
+        return element
+

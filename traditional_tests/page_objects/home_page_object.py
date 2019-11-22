@@ -63,8 +63,8 @@ class HomePage():
         compare_expenses.click()
 
     def flash_sale_is_present(self):
-        return Utils.wait_presence_and_get_element(self.driver, By.ID, 'flashSale')
+        return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '#flashSale img')
 
     def flash_sale2_is_present(self):
-        return Utils.wait_presence_and_get_element(self.driver, By.ID, 'flashSale2')
+        return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '#flashSale2 img')
 
