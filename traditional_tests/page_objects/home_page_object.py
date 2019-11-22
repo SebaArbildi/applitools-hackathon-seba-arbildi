@@ -2,16 +2,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from traditional_tests.page_objects.utils import Utils
+
 
 class HomePage():
     def __init__(self, driver):
         self.driver = driver
 
     def user_is_logged_in(self):
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '.avatar-w'))
-        )
-        return True
+        return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '.avatar-w')
 
     def get_transactions_table(self):
         original_table = []

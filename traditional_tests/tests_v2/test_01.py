@@ -23,12 +23,12 @@ class Test01(unittest.TestCase):
     def test_title_is_login_form(self):
         title = self.login_page.get_title('Login Form')
         self.assertIsNotNone(title)
-        self.assertEqual(title, 'Login Form')
+        self.assertEqual('Login Form', title)
 
     def test_username_label_is_present(self):
         username = self.login_page.username_label_is_present()
         self.assertIsNotNone(username)
-        self.assertEqual(username, 'Username')
+        self.assertEqual('Username', username)
 
     def test_username_box_is_present(self):
         element = self.login_page.get_username_box()
@@ -43,7 +43,7 @@ class Test01(unittest.TestCase):
     def test_password_label_is_present(self):
         password = self.login_page.password_label_is_present()
         self.assertIsNotNone(password)
-        self.assertEqual(password, 'Password')
+        self.assertEqual('Password', password)
 
     def test_password_box_is_present(self):
         element = self.login_page.get_password_box()
@@ -64,9 +64,10 @@ class Test01(unittest.TestCase):
 
     def test_get_remember_me_label_text(self):
         remember_me = self.login_page.get_remember_me_label_text()
-        self.assertEqual(remember_me.text, 'Remember Me')
+        self.assertEqual('Remember Me', remember_me.text)
 
+    #Missing Linkedin Media img
     def test_count_social_media_imgs(self):
-        count = self.login_page.count_social_media_imgs()
-        self.assertEqual(count, 3)
+        count = self.login_page.count_social_media_imgs_v2()
+        self.assertEqual(3, count)
 

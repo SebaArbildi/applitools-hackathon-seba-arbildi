@@ -46,8 +46,15 @@ class LoginPage:
     def get_remember_me_label_text(self):
         return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '.form-check-label')
 
-    def count_social_media_imgs(self):
+    def count_social_media_imgs_v1(self):
         elements = Utils.find_elements(self.driver, By.CSS_SELECTOR, '.buttons-w a')
+        count = 0
+        for x in elements:
+            count = count + 1;
+        return count
+
+    def count_social_media_imgs_v2(self):
+        elements = Utils.find_elements(self.driver, By.CSS_SELECTOR, '.buttons-w span')
         count = 0
         for x in elements:
             count = count + 1;
@@ -67,7 +74,10 @@ class LoginPage:
 
     def get_warning_msg(self):
         element = Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '.alert-warning')
-        return element.text
+        text = None
+        if element is not None:
+            text = element.text
+        return text
 
     def login(self, username, password):
         self.set_username(username)
