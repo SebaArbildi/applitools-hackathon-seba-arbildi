@@ -14,8 +14,8 @@ class Test04(unittest.TestCase):
     def setUp(self):
         driver = webdriver.Chrome('./chromedriver')
         driver.get('https://demo.applitools.com/hackathonChartV2.html')
-        chartPage = ChartPage(driver)
         self.wait()
+        chartPage = ChartPage(driver)
         chartPage.generate_chart_png('original_2017_2018')
         chartPage.click_show_next_year_button()
         self.wait()

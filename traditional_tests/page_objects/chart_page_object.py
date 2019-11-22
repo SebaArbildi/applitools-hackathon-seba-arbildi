@@ -7,15 +7,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from traditional_tests.page_objects.utils import Utils
+
 
 class ChartPage:
     def __init__(self, driver):
         self.driver = driver
 
     def click_show_next_year_button(self):
-        button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, 'addDataset'))
-        )
+        button = Utils.wait_clickable_and_get_element(self.driver, By.ID, 'addDataset')
         button.click()
 
     def generate_chart_png(self, name):
