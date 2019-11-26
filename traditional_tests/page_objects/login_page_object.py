@@ -38,7 +38,7 @@ class LoginPage:
         return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '.form-group:nth-child(2) .pre-icon')
 
     def get_login_button(self):
-        return Utils.wait_clickable_and_get_element(self.driver, By.ID, 'log-in')
+        return Utils.wait_presence_and_get_element(self.driver, By.ID, 'log-in')
 
     def remember_me_button_is_clickable(self):
         return Utils.wait_clickable_and_get_element(self.driver, By.CSS_SELECTOR, '.form-check-input')
