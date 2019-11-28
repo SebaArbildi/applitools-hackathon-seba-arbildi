@@ -5,7 +5,7 @@ from traditional_tests.page_objects.login_page_object import LoginPage
 class Test01(BaseTestClass):
 
     def setUp(self):
-        BaseTestClass.setUp(self)
+        self.init_driver()
         self.driver.get('https://demo.applitools.com/hackathon.html')
         self.login_page = LoginPage(self.driver)
 

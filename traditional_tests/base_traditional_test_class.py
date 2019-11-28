@@ -8,7 +8,7 @@ from traditional_tests.page_objects.chart_page_object import ChartPage
 
 class BaseTestClass(unittest.TestCase):
 
-    def setUp(self):
+    def init_driver(self):
         self.driver = webdriver.Chrome('./chromedriver')
 
     def wait(self):

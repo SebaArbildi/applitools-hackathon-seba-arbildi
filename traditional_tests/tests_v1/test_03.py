@@ -1,5 +1,3 @@
-from selenium import webdriver
-
 from traditional_tests.base_traditional_test_class import BaseTestClass
 from traditional_tests.page_objects.home_page_object import HomePage
 from traditional_tests.page_objects.login_page_object import LoginPage
@@ -8,7 +6,7 @@ from traditional_tests.page_objects.login_page_object import LoginPage
 class Test03(BaseTestClass):
 
     def setUp(self):
-        BaseTestClass.setUp(self)
+        self.init_driver()
         self.driver.get('https://demo.applitools.com/hackathon.html')
         self.login_page = LoginPage(self.driver)
         self.login_page.login('seba', 'seba')

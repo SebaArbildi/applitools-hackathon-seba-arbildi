@@ -8,8 +8,8 @@ class Test04(BaseTestClass):
 
     # pre-condition to generate original chart, to make comparison on test. If fails, please run it one more time.
     def setUp(self):
-        BaseTestClass.generate_original_charts(self)
-        BaseTestClass.setUp(self)
+        self.generate_original_charts()
+        self.init_driver()
         self.driver.get('https://demo.applitools.com/hackathon.html')
         login_page = LoginPage(self.driver)
         login_page.login('seba', 'seba')
