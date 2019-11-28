@@ -15,7 +15,7 @@ class Test05(BaseTestClass):
         self.driver.close()
 
     def test_dynamic_add(self):
-        self.eyes.open(self.driver, "Hackathon app", "Dynamic content validation",
+        self.eyes.open(self.driver, "Hackathon app", "Test 05: Dynamic content validation",
                             {'width': 800, 'height': 600})
         self.eyes.check_window()
         self.eyes.close()

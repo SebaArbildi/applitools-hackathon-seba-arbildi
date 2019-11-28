@@ -17,7 +17,7 @@ class Test04(BaseTestClass):
         login_page.login('seba', 'seba')
         home_page = HomePage(self.driver)
         home_page.click_compare_expenses()
-        dr = self.eyes.open(self.driver, "Hackathon app", "Chart validation",
+        dr = self.eyes.open(self.driver, "Hackathon app", "Test 04: Chart validation",
                             {'width': 800, 'height': 600})
         chart_page = ChartPage(dr)
         self.eyes.check_window()

@@ -26,7 +26,7 @@ class Test02(BaseTestClass):
 
     user_password_data = lambda: (
         ('', 'p'), ('u', ''),
-        ('', '')
+        ('', ''), ('u', 'p')
     )
 
     @data_provider(user_password_data)
@@ -40,30 +40,8 @@ class Test02(BaseTestClass):
         login_page.set_username(username)
         login_page.set_password(password)
         login_page.click_login_button()
+        self.eyes.check_window()
         self.eyes.check_region(Region(left=170, top=280, width=330, height=100))
         self.eyes.close_async()
         self.driver.close()
 
-    def test_login_page_general(self):
-        self.this_init()
-        dr = self.eyes.open(self.driver, "Hackathon app", "Test 02: General element test".format(self.counter),
-                            {'width': 800, 'height': 600})
-        dr.get(self._url)
-        login_page = LoginPage(dr)
-        login_page.set_username('username')
-        login_page.set_password('')
-        login_page.click_login_button()
-        self.eyes.check_window()
-        self.driver.close()
-
-    def test_login_successful(self):
-        self.this_init()
-        dr = self.eyes.open(self.driver, "Hackathon app", "Test 02: Login successful test".format(self.counter),
-                            {'width': 800, 'height': 600})
-        dr.get(self._url)
-        self.login_page = LoginPage(dr)
-        self.login_page.set_username('username')
-        self.login_page.set_password('password')
-        self.login_page.click_login_button()
-        self.eyes.check_window()
-        self.driver.close()

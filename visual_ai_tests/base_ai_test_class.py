@@ -9,7 +9,7 @@ from selenium import webdriver
 class BaseTestClass(unittest.TestCase):
 
     _batch = BatchInfo('Hackathon ')
-    _url = 'https://demo.applitools.com/hackathon.html'
+    _url = 'https://demo.applitools.com/hackathonV2.html'
 
     def init(self):
         self.driver = webdriver.Chrome('./chromedriver')
