@@ -1,15 +1,12 @@
-import unittest
-
-from selenium import webdriver
-
+from traditional_tests.base_traditional_test_class import BaseTestClass
 from traditional_tests.page_objects.home_page_object import HomePage
 from traditional_tests.page_objects.login_page_object import LoginPage
 
 
-class Test05(unittest.TestCase):
+class Test05(BaseTestClass):
 
     def setUp(self):
-        self.driver = webdriver.Chrome('./chromedriver')
+        BaseTestClass.setUp(self)
         self.driver.get('https://demo.applitools.com/hackathon.html?showAd=true')
         self.login_page = LoginPage(self.driver)
         self.login_page.login('seba', 'seba')

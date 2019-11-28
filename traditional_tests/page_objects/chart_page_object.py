@@ -2,11 +2,7 @@ import base64
 import re
 
 from PIL import Image, ImageChops
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from traditional_tests.page_objects.utils import Utils
 
 
@@ -15,7 +11,7 @@ class ChartPage:
         self.driver = driver
 
     def click_show_next_year_button(self):
-        button = Utils.wait_clickable_and_get_element(self.driver, By.ID, 'addDataset')
+        button = Utils.wait_presence_and_get_element(self.driver, By.ID, 'addDataset')
         button.click()
 
     def generate_chart_png(self, name):

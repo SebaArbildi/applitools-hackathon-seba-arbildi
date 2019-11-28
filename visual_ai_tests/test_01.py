@@ -15,8 +15,7 @@ class Test01(unittest.TestCase):
         self.eyes = Eyes()
         self.eyes.api_key = os.environ['APPLITOOLS_API_KEY']
         self.eyes.open(self.driver, "Hackathon app", "test_01_elements_presence", {'width': 800, 'height': 600})
-        #self.driver.get('https://demo.applitools.com/hackathon.html') #v1_url
-        self.driver.get('https://demo.applitools.com/hackathonV2.html') #v2_url
+        self.driver.get('https://demo.applitools.com/hackathon.html')
         self.login_page = LoginPage(self.driver)
 
     def tearDown(self):
