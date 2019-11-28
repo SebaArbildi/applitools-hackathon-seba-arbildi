@@ -15,7 +15,7 @@ class Test03(BaseTestClass):
         self.eyes.abort()
 
     def test_sort_order_and_data(self):
-        dr = self.eyes.open(self.driver, "Hackathon app", "Table Sorting validation",
+        dr = self.eyes.open(self.driver, "Hackathon app", "Test 03: Table Sorting validation",
                             {'width': 800, 'height': 600})
         home_page = HomePage(dr)
         home_page.click_amount_header()

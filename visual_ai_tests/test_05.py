@@ -1,19 +1,11 @@
-import os
-import unittest
-
-from applitools.selenium import Eyes
-from selenium import webdriver
-
-from traditional_tests.page_objects.home_page_object import HomePage
 from traditional_tests.page_objects.login_page_object import LoginPage
+from visual_ai_tests.base_ai_test_class import BaseTestClass
 
 
-class Test05(unittest.TestCase):
+class Test05(BaseTestClass):
 
     def setUp(self):
-        self.eyes = Eyes()
-        self.eyes.api_key = os.environ['APPLITOOLS_API_KEY']
-        self.driver = webdriver.Chrome('./chromedriver')
+        self.init()
         self.driver.get('https://demo.applitools.com/hackathonV2.html?showAd=true')
         self.login_page = LoginPage(self.driver)
         self.login_page.login('seba', 'seba')
