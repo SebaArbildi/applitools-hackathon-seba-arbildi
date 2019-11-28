@@ -55,7 +55,7 @@ class HomePage():
         return valid
 
     def click_amount_header(self):
-        amount_header = Utils.wait_clickable_and_get_element(self.driver, By.ID, 'amount')
+        amount_header = Utils.wait_presence_and_get_element(self.driver, By.ID, 'amount')
         amount_header.click()
 
     def click_compare_expenses(self):
@@ -67,4 +67,8 @@ class HomePage():
 
     def flash_sale2_is_present(self):
         return Utils.wait_presence_and_get_element(self.driver, By.CSS_SELECTOR, '#flashSale2 img')
+
+    def scroll_down_to_chart(self):
+        self.driver.execute_script("window.scrollBy(0,450)", "")
+
 

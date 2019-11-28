@@ -1,6 +1,7 @@
 import unittest
 
 from selenium import webdriver
+from unittest_data_provider import data_provider
 
 from traditional_tests.page_objects.home_page_object import HomePage
 from traditional_tests.page_objects.login_page_object import LoginPage
@@ -15,6 +16,11 @@ class Test02(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
+
+    user_password_data = lambda: (
+        ('', 'p', 'Username must be present'), ('u', '', 'Password must be present'),
+        ('', '', 'Both Username and Password must be present')
+    )
 
     def test_no_pass_no_username(self):
         self.login_page.click_login_button()
